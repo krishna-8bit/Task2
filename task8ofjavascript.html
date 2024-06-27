@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ffcccc, #ccccff);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        h2 {
+            text-align: center;
+            color: blue;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        td {
+            padding: 10px;
+            vertical-align: top;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="tel"], textarea, select {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+        .error {
+            color: red;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var valid = true;
+            var elements = document.querySelectorAll('input[required], textarea[required], select[required]');
+            elements.forEach(function(element) {
+                if (element.value === '') {
+                    element.style.borderColor = 'red';
+                    valid = false;
+                } else {
+                    element.style.borderColor = '#ccc';
+                }
+            });
+            if (!valid) {
+                alert('Please fill all required fields');
+            }
+            return valid;
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        <form onsubmit="return validateForm()">
+            <table>
+                <tr>
+                    <td align="right">First Name:</td>
+                    <td><input type="text" required></td>
+                    <td class="error">POOR</td>
+                </tr>
+                <tr>
+                    <td align="right">Last Name:</td>
+                    <td><input type="text" required></td>
+                    <td class="error">POOR</td>
+                </tr>
+                <tr>
+                    <td align="right">Email:</td>
+                    <td><input type="email" required></td>
+                    <td class="error">POOR</td>
+                </tr>
+                <tr>
+                    <td align="right">Password:</td>
+                    <td><input type="password" required></td>
+                    <td class="error">POOR</td>
+                </tr>
+                <tr>
+                    <td align="right">Re-enter Password:</td>
+                    <td><input type="password" required></td>
+                    <td class="error">POOR OR MISMATCH</td>
+                </tr>
+                <tr>
+                    <td align="right">Gender:</td>
+                    <td>
+                        <input type="radio" name="gender" value="male" checked required> Male
+                        <input type="radio" name="gender" value="female"> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">Age:</td>
+                    <td><input type="text" required></td>
+                    <td class="error">POOR</td>
+                </tr>
+                <tr>
+                    <td align="right">Phone number:</td>
+                    <td><input type="tel" required></td>
+                    <td class="error">POOR</td>
+                </tr>
+                <tr>
+                    <td align="right">Address:</td>
+                    <td><textarea rows="4" cols="50" required></textarea></td>
+                    <td class="error">POOR</td>
+                </tr>
+                <tr>
+                    <td align="right">State:</td>
+                    <td><input type="text" required></td>
+                    <td class="error">POOR</td>
+                </tr>
+                <tr>
+                    <td align="right">Country:</td>
+                    <td>
+                        <select required>
+                            <option value="">Choose your country</option>
+                            <option value="India">India</option>
+                        </select>    
+                    </td>
+                    <td class="error">POOR</td>
+                </tr>
+                <tr>
+                    <td align="right">Languages known:</td>
+                    <td colspan="2">
+                        <input type="checkbox" value="English"> English
+                        <input type="checkbox" value="Kannada"> Kannada
+                        <input type="checkbox" value="Hindi"> Hindi
+                        <input type="checkbox" value="Telugu"> Telugu
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input type="checkbox" required checked> Hereby I declare all the details given are true
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" colspan="3">
+                        Log in to <a href="https://ethnus.com/">Ethnus</a> website
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="3">
+                        <button type="submit">Register</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
+
